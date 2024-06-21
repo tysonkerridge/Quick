@@ -1,6 +1,7 @@
 import Foundation
 import XCTest
 
+@available(iOSApplicationExtension 13.0.0, *)
 public class AsyncExample: ExampleBase {
     weak internal var group: AsyncExampleGroup?
 
@@ -268,6 +269,7 @@ public class AsyncExample: ExampleBase {
     }
 }
 
+@available(iOSApplicationExtension 13.0.0, *)
 extension AsyncExample {
     /**
         Returns a boolean indicating whether two Example objects are equal.

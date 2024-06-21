@@ -14,10 +14,12 @@ public struct TestState<T> {
 
     /// Resets the property to nil after each test.
     public init() {
-        if AsyncWorld.sharedWorld.currentExampleGroup != nil {
-            AsyncWorld.sharedWorld.beforeEach { [container] in
-                AsyncSpec.current.addTeardownBlock {
-                    container.value = nil
+        if #available(iOSApplicationExtension 13.0.0, *) {
+            if AsyncWorld.sharedWorld.currentExampleGroup != nil {
+                AsyncWorld.sharedWorld.beforeEach { [container] in
+                    AsyncSpec.current.addTeardownBlock {
+                        container.value = nil
+                    }
                 }
             }
         }
@@ -32,11 +34,13 @@ public struct TestState<T> {
     }
 
     public init(wrappedValue: @escaping @autoclosure () -> T?) {
-        if AsyncWorld.sharedWorld.currentExampleGroup != nil {
-            AsyncWorld.sharedWorld.beforeEach { [container] in
-                container.value = wrappedValue()
-                AsyncSpec.current.addTeardownBlock {
-                    container.value = nil
+        if #available(iOSApplicationExtension 13.0.0, *) {
+            if AsyncWorld.sharedWorld.currentExampleGroup != nil {
+                AsyncWorld.sharedWorld.beforeEach { [container] in
+                    container.value = wrappedValue()
+                    AsyncSpec.current.addTeardownBlock {
+                        container.value = nil
+                    }
                 }
             }
         }

@@ -41,6 +41,7 @@ final class SyncExampleMetadata: ExampleMetadata {
     }
 }
 
+@available(iOSApplicationExtension 13.0, *)
 final class AsyncExampleMetadata: ExampleMetadata {
     let group: AsyncExampleGroup
 

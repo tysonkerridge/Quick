@@ -3,9 +3,11 @@
 /// A protocol for defining the synchronous DSL usable from Quick synchronous specs.
 public protocol AsyncDSLUser {}
 
+@available(iOSApplicationExtension 13.0, *)
 extension AsyncSpec: AsyncDSLUser {}
 extension AsyncBehavior: AsyncDSLUser {}
 
+@available(iOSApplicationExtension 13.0, *)
 extension AsyncDSLUser {
     // MARK: - beforeSuite
     /**

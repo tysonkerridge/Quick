@@ -4,6 +4,7 @@ import Foundation
     Adds methods to World to support top-level DSL functions. These functions map directly to the DSL that test
     writers use in their specs.
 */
+@available(iOSApplicationExtension 13.0, *)
 extension AsyncWorld {
     // MARK: - Example groups.
     @nonobjc

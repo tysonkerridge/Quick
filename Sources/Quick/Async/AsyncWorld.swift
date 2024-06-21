@@ -14,6 +14,7 @@ import Foundation
     You may configure how Quick behaves by calling the `AsyncWorld.configure(_:)`
     method from within an overridden `class QuickConfiguration.configure(_:)` method.
 */
+@available(iOSApplicationExtension 13.0.0, *)
 final internal class AsyncWorld: _WorldBase {
     /**
         The example group that is currently being run.

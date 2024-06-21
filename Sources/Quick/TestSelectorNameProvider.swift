@@ -10,6 +10,7 @@ import Foundation
         }
     }
 
+    @available(iOSApplicationExtension 13.0, *)
     static func testSelectorName(forAsync example: AsyncExample, classSelectorNames selectorNames: Set<String>) -> String {
         if useLegacyStyleTestSelectorNames {
             return legacyStyleTestSelectorName(exampleName: example.name, classSelectorNames: selectorNames, isAsync: true)

@@ -49,7 +49,11 @@ final internal class World: _WorldBase {
 
     internal var numberOfSyncExamplesRun = 0
     internal var numberOfExamplesRun: Int {
-        numberOfSyncExamplesRun + AsyncWorld.sharedWorld.numberOfAsyncExamplesRun
+        if #available(iOSApplicationExtension 13.0.0, *) {
+            numberOfSyncExamplesRun + AsyncWorld.sharedWorld.numberOfAsyncExamplesRun
+        } else {
+            numberOfSyncExamplesRun
+        }
     }
 
     /**
@@ -252,7 +256,12 @@ final internal class World: _WorldBase {
 
     private func includedExamples() -> [ExampleWrapper] {
         let all = allExamples()
-        let hasFocusedExamples = self.hasFocusedExamples() || AsyncWorld.sharedWorld.hasFocusedExamples()
+        let hasFocusedExamples: Bool
+        if #available(iOSApplicationExtension 13.0.0, *) {
+            hasFocusedExamples = self.hasFocusedExamples() || AsyncWorld.sharedWorld.hasFocusedExamples()
+        } else {
+            hasFocusedExamples = self.hasFocusedExamples()
+        }
 
         if !hasFocusedExamples && configuration.runAllWhenEverythingFiltered {
             return all.map { example in

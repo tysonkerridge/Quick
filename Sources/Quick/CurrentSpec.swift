@@ -7,5 +7,9 @@ import XCTest
 /// This does not work with standard XCTest APIs - this does not provide the currently executing
 /// `XCTestCase` instance for tests defined using `XCTest`.
 public func currentSpec() -> XCTestCase? {
-    QuickSpec.current ?? AsyncSpec.current
+    if #available(iOSApplicationExtension 13.0, *) {
+        QuickSpec.current ?? AsyncSpec.current
+    } else {
+        QuickSpec.current
+    }
 }

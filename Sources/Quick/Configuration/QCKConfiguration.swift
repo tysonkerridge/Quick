@@ -80,6 +80,7 @@ final public class QCKConfiguration: NSObject {
         - Important: This automatically bridges between async and sync specs. When running on AsyncSpecs, this closure will run on the main actor.
     */
 #if canImport(Darwin)
+    @available(iOSApplicationExtension 13.0, *)
     @objc(beforeEachWithMetadata:)
     public func objc_beforeEach(_ closure: @escaping BeforeExampleWithMetadataNonThrowingClosure) {
         exampleHooks.appendBefore(closure)
@@ -90,6 +91,7 @@ final public class QCKConfiguration: NSObject {
         }
     }
 
+    @available(iOSApplicationExtension 13.0, *)
     @nonobjc
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
@@ -144,6 +146,7 @@ final public class QCKConfiguration: NSObject {
         - Important: This automatically bridges between async and sync specs. When running on AsyncSpecs, this closure will run on the main actor.
     */
 #if canImport(Darwin)
+    @available(iOSApplicationExtension 13.0, *)
     @objc(afterEachWithMetadata:)
     public func objc_afterEach(_ closure: @escaping AfterExampleWithMetadataNonThrowingClosure) {
         exampleHooks.appendAfter(closure)
@@ -154,6 +157,7 @@ final public class QCKConfiguration: NSObject {
         }
     }
 
+    @available(iOSApplicationExtension 13.0, *)
     @nonobjc
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)

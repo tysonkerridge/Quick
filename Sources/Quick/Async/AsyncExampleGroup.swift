@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOSApplicationExtension 13.0.0, *)
 private enum ExampleUnit {
     case example(AsyncExample)
     case group(AsyncExampleGroup)
@@ -10,6 +11,7 @@ private enum ExampleUnit {
     the `describe` and `context` functions. Example groups can share
     setup and teardown code.
 */
+@available(iOSApplicationExtension 13.0.0, *)
 final public class AsyncExampleGroup: CustomStringConvertible {
     weak internal var parent: AsyncExampleGroup?
     internal let hooks = AsyncExampleHooks()

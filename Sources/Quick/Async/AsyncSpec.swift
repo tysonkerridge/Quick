@@ -8,6 +8,7 @@ public typealias AsyncSpecBase = _QuickSpecBase
 public typealias AsyncSpecBase = XCTestCase
 #endif
 
+@available(iOSApplicationExtension 13.0, *)
 open class AsyncSpec: AsyncSpecBase {
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
